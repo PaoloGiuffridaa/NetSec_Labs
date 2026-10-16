@@ -2,7 +2,7 @@ import socket
 
 def start_server():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  #AF_INET usa iPv4, SOCK_STREAM usa TCP
-    server.bind(("127.0.0.1", 9001))
+    server.bind(("10.8.0.84", 9001))
 
     server.listen()
 
@@ -32,6 +32,14 @@ def handle_client(client):
             response = "PONG\n"
             client.sendall(response.encode('ascii'))
 
+        elif command.startswith("ECHO "):
+            print(f"Client {client} invia ECHO")
+            response = command[5:] + "\n"
+            client.sendall(response.encode('ascii'))
 
-    if __name__ == "__main__":
-        start_server()
+        else:
+            response = "ERR\n"
+            client.sendall(response.encode('ascii'))
+
+if __name__ == "__main__":
+    start_server()
