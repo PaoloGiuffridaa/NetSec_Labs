@@ -175,7 +175,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 
 
 def start_server():
-    server = HTTPServer(("10.8.0.66", 8080), RequestHandler)
+    server = HTTPServer(("10.8.0.6", 8080), RequestHandler)
     print("HTTP Server listening on port 8080")
     server.serve_forever()
 
