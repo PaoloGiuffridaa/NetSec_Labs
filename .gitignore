@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+#add by me
+.~lock.Report_Lab_NetSec.docx#
